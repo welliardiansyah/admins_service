@@ -6,12 +6,12 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: efood
+      app: rekbers
       service: admins
   template:
     metadata:
       labels:
-        app: efood
+        app: rekbers
         service: admins
         sidecar.istio.io/inject: "true"
         version: "1"
@@ -20,7 +20,7 @@ spec:
         - name: ghcr
       containers:
       - name: admins
-        image: ghcr.io/wofood/efood_admins
+        image: ghcr.io/wofood/rekbers_admins
         resources:
           requests:
             memory: "500Mi"
@@ -34,7 +34,7 @@ spec:
             containerPort: 3000
         envFrom:
           - configMapRef:
-              name: efood-config
+              name: rekbers-config
         readinessProbe:
           httpGet:
             path: /

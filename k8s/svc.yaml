@@ -3,11 +3,11 @@ kind: Service
 metadata:
   name: admins-svc
   labels:
-    app: efood
+    app: rekbers
     service: admins
 spec:
   selector:
-    app: efood
+    app: rekbers
     service: admins
   ports:
     - name: http-port
